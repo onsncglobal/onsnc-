@@ -1,12 +1,773 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>ONSNC - Civilization 2.0</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONSNC | Building Civilization 2.0 - Global Movement for Human Progress</title>
+    <meta name="description" content="ONSNC - Omniversal NovumSapiens & NeoSentiencenova Nexus for Civilization. Leading the global transformation toward Civilization 2.0 through conscious innovation, ethical governance, and unified human progress.">
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="ONSNC - Building Civilization 2.0">
+    <meta property="og:description" content="Global movement for conscious innovation, ethical governance, and unified human progress">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://onsnc.org">
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>">
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header & Navigation */
+        .header-top {
+            background: #1a1a2e;
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9em;
+        }
+        .header-top-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .header-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .header-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .header-links a:hover {
+            color: white;
+        }
+        .main-header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+            flex-wrap: wrap;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-symbol {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .logo-text h1 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #1a1a2e;
+            margin: 0;
+        }
+        .logo-text p {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .nav-menu a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        .nav-menu a:hover {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            text-align: center;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+        .btn-secondary {
+            color: #667eea;
+            border: 2px solid #667eea;
+            background: transparent;
+        }
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #667eea 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        /* Alert Banner */
+        .alert {
+            background: #e3f2fd;
+            border-left: 5px solid #667eea;
+            padding: 20px 0;
+        }
+        .alert-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .alert-icon {
+            font-size: 32px;
+            min-width: 50px;
+        }
+        .alert-text h3 {
+            margin: 0 0 5px 0;
+            color: #1a1a2e;
+            font-size: 18px;
+        }
+        .alert-text p {
+            margin: 0;
+            color: #666;
+        }
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: #1a1a2e;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        /* Grid Systems */
+        .grid {
+            display: grid;
+            gap: 30px;
+        }
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        }
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #f0f0f0;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        .card-icon {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        .card-content {
+            padding: 30px;
+        }
+        .card-category {
+            color: #667eea;
+            font-size: 0.9em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .card-title {
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .card-description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .card-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: gap 0.3s;
+        }
+        .card-link:hover {
+            gap: 10px;
+        }
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+        }
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+        }
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .stat-label {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        /* Beliefs Section */
+        .beliefs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .belief-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+        .belief-card h3 {
+            color: #1a1a2e;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        .belief-card .belief {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .belief-card .mission {
+            color: #667eea;
+            font-weight: 600;
+        }
+        /* Quote Section */
+        .quote-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+        }
+        .quote-section blockquote {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-style: italic;
+            margin: 0 auto 30px;
+            max-width: 900px;
+            line-height: 1.4;
+        }
+        .quote-section cite {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        /* Action Section */
+        .action-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        .action-card:hover {
+            transform: translateY(-5px);
+        }
+        .action-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+            margin: 0 auto 25px;
+        }
+        .action-card h3 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .action-card p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+        /* Footer */
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-section h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        .footer-section ul {
+            list-style: none;
+        }
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-section a:hover {
+            color: white;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: #999;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-top-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .nav-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .nav-menu {
+                justify-content: center;
+            }
+            .hero {
+                padding: 60px 0;
+            }
+            .section {
+                padding: 60px 0;
+            }
+            .alert-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Welcome to ONSNC</h1>
-  <p>Omniversal NovumSapiens NeoSentiencenova Nexus for Civilization</p>
-  <p>This is our vision for Civilization 2.0</p>
+    <!-- Header Top Bar -->
+    <header class="header-top">
+        <div class="container">
+            <div class="header-top-content">
+                <div class="header-links">
+                    <a href="#global-network">Global Network</a>
+                    <a href="#research">Research Portal</a>
+                    <a href="#academy">ONSNC Academy</a>
+                </div>
+                <div class="header-links">
+                    <a href="#contact">Contact</a>
+                    <a href="#news">News Centre</a>
+                    <a href="#languages">EN | ES | FR</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="nav-content">
+                <div class="logo">
+                    <div class="logo-symbol">Ω</div>
+                    <div class="logo-text">
+                        <h1>ONSNC</h1>
+                        <p>Civilization 2.0</p>
+                    </div>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#initiatives">Initiatives</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#network">Network</a></li>
+                    <li><a href="#academy">Academy</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="#join" class="btn btn-secondary">Join Movement</a>
+                    <a href="#support" class="btn btn-primary">Support ONSNC</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">🌍 Global Movement • Est. 2025</div>
+                <h1>Building Civilization 2.0</h1>
+                <p>Unite knowledge, compassion, and innovation to forge a civilization without boundaries — empowering every human and shaping a future of justice, harmony, and shared progress.</p>
+                <div class="hero-buttons">
+                    <a href="#manifesto" class="btn btn-primary">📖 Read Our Manifesto</a>
+                    <a href="#join" class="btn btn-secondary">🤝 Join the Movement</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alert Banner -->
+    <section class="alert">
+        <div class="container">
+            <div class="alert-content">
+                <div class="alert-icon">🎯</div>
+                <div class="alert-text">
+                    <h3>Summit of the Future 2025: Building Civilizational Frameworks</h3>
+                    <p>Join global leaders, innovators, and change-makers in designing humanity's next evolutionary phase. <a href="#summit" style="color: #667eea; font-weight: bold;">Registration now open →</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>🌟 Transforming Global Challenges</h2>
+                <p>ONSNC addresses humanity's most pressing challenges through innovative frameworks that unite technology, ethics, and human potential for sustainable progress.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Initiatives Grid -->
+    <section class="section" style="background: #f8f9fa;" id="initiatives">
+        <div class="container">
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="card-icon">🏛️</div>
+                    <div class="card-content">
+                        <div class="card-category">Democratic Innovation</div>
+                        <h3 class="card-title">Hybrid Governance Systems</h3>
+                        <p class="card-description">Designing next-generation democratic frameworks that combine human wisdom with technological efficiency, ensuring transparent, participatory governance for the digital age.</p>
+                        <a href="#governance" class="card-link">Explore Framework →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🤖</div>
+                    <div class="card-content">
+                        <div class="card-category">Ethical Technology</div>
+                        <h3 class="card-title">Conscious AI Development</h3>
+                        <p class="card-description">Leading the development of artificial intelligence systems that serve humanity's highest values, ensuring AI advancement aligns with ethical principles and human flourishing.</p>
+                        <a href="#ai-ethics" class="card-link">View Research →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🌱</div>
+                    <div class="card-content">
+                        <div class="card-category">Sustainable Progress</div>
+                        <h3 class="card-title">Planetary Stewardship</h3>
+                        <p class="card-description">Creating regenerative systems that balance human advancement with ecological health, ensuring our civilization thrives within planetary boundaries.</p>
+                        <a href="#sustainability" class="card-link">Join Initiative →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🤝</div>
+                    <div class="card-content">
+                        <div class="card-category">Global Unity</div>
+                        <h3 class="card-title">Universal Human Rights</h3>
+                        <p class="card-description">Building bridges across cultures, nations, and belief systems to establish universal principles of human dignity, equality, and shared prosperity.</p>
+                        <a href="#unity" class="card-link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎓</div>
+                    <div class="card-content">
+                        <div class="card-category">Educational Innovation</div>
+                        <h3 class="card-title">Consciousness Development</h3>
+                        <p class="card-description">Revolutionizing education to develop not just knowledge and skills, but wisdom, empathy, and the consciousness needed to navigate Civilization 2.0.</p>
+                        <a href="#education" class="card-link">Explore Programs →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💡</div>
+                    <div class="card-content">
+                        <div class="card-category">Innovation Catalyst</div>
+                        <h3 class="card-title">Future Technologies</h3>
+                        <p class="card-description">Accelerating breakthrough innovations in biotechnology, space exploration, and consciousness research that will define humanity's next evolutionary phase.</p>
+                        <a href="#innovation" class="card-link">View Projects →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section stats">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color: white;">🌍 Global Impact & Reach</h2>
+                <p style="color: #ccc;">Building a worldwide network of conscious leaders, innovators, and change-makers committed to humanity's positive transformation.</p>
+            </div>
+            <div class="grid grid-4">
+                <div class="stat-item">
+                    <span class="stat-number">150+</span>
+                    <div class="stat-label">Countries Engaged</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50K+</span>
+                    <div class="stat-label">Global Members</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">25+</span>
+                    <div class="stat-label">Research Initiatives</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100+</span>
+                    <div class="stat-label">Partner Organizations</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Beliefs -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>💫 Our Core Beliefs & Mission</h2>
+                <p>The foundational principles that guide ONSNC's approach to building Civilization 2.0</p>
+            </div>
+            <div class="beliefs-grid">
+                <div class="belief-card">
+                    <h3>🌍 1. Human Unity</h3>
+                    <p class="belief"><strong>We believe</strong> humanity is one family, beyond caste, religion, race, and borders — united in diversity.</p>
+                    <p class="mission"><strong>Our mission:</strong> To unite people through equality, justice, and shared progress.</p>
+                </div>
+                <div class="belief-card">
+                    <h3>🔬 2. Scientific Progress with Ethics</h3>
+                    <p class="belief"><strong>We believe</strong> science and technology must serve humanity with integrity and compassion.</p>
+                    <p class="mission"><strong>Our mission:</strong> To drive innovation responsibly through AI, research, and future technologies.</p>
+                </div>
+                <div class="belief-card">
+                    <h3>⚖️ 3. Freedom, Fairness & Participation</h3>
+                    <p class="belief"><strong>We believe</strong> true democracy means liberty, fairness, and active participation for all.</p>
+                    <p class="mission"><strong>Our mission:</strong> To build hybrid democratic systems where people and technology work together.</p>
+                </div>
+                <div class="belief-card">
+                    <h3>🌱 4. Sustainability & Balance</h3>
+                    <p class="belief"><strong>We believe</strong> humanity and nature must grow in harmony.</p>
+                    <p class="mission"><strong>Our mission:</strong> To create a sustainable future through green living and conscious innovation.</p>
+                </div>
+                <div class="belief-card">
+                    <h3>✨ 5. Simplicity, Truth & Conscious Living</h3>
+                    <p class="belief"><strong>We believe</strong> our greatest strength lies in simplicity, authenticity, and mindful living.</p>
+                    <p class="mission"><strong>Our mission:</strong> To shape Civilization 2.0 — inclusive, ethical, and innovative.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inspirational Quote -->
+    <section class="section quote-section">
+        <div class="container">
+            <blockquote>
+                "ONSNC unites knowledge, compassion, and innovation to forge a civilization without boundaries — empowering every human and shaping a future of justice, harmony, and shared progress."
+            </blockquote>
+            <cite>— ONSNC Founding Principle</cite>
+        </div>
+    </section>
+
+    <!-- Action Section -->
+    <section class="section" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-header">
+                <h2>🚀 Shape the Future</h2>
+                <p>Every individual has a role in building Civilization 2.0. Discover how you can contribute to humanity's conscious evolution through concrete action.</p>
+            </div>
+            <div class="grid grid-3">
+                <div class="action-card">
+                    <div class="action-icon">🎯</div>
+                    <h3>Join a Local Chapter</h3>
+                    <p>Connect with like-minded individuals in your region to implement ONSNC principles in your community and drive local transformation initiatives.</p>
+                    <a href="#chapters" class="btn btn-primary">Find Your Chapter</a>
+                </div>
+                <div class="action-card">
+                    <div class="action-icon">🌐</div>
+                    <h3>Contribute to Research</h3>
+                    <p>Share your expertise and collaborate on groundbreaking research in governance, technology, sustainability, and human development.</p>
+                    <a href="#research-opportunities" class="btn btn-primary">View Research Opportunities</a>
+                </div>
+                <div class="action-card">
+                    <div class="action-icon">💫</div>
+                    <h3>Support the Movement</h3>
+                    <p>Help fund and amplify our global initiatives through donations, partnerships, or by becoming an ONSNC ambassador in your network.</p>
+                    <a href="#support" class="btn btn-primary">Support ONSNC</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>ONSNC</h3>
+                    <p>Building Civilization 2.0 through conscious innovation, ethical governance, and unified human progress.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Initiatives</h3>
+                    <ul>
+                        <li><a href="#governance">Hybrid Governance</a></li>
+                        <li><a href="#ai-ethics">Ethical AI</a></li>
+                        <li><a href="#sustainability">Planetary Stewardship</a></li>
+                        <li><a href="#education">Conscious Education</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Network</h3>
+                    <ul>
+                        <li><a href="#chapters">Local Chapters</a></li>
+                        <li><a href="#partners">Partner Organizations</a></li>
+                        <li><a href="#research">Research Collaborations</a></li>
+                        <li><a href="#events">Global Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#newsletter">Newsletter</a></li>
+                        <li><a href="#social">Social Media</a></li>
+                        <li><a href="#press">Press Kit</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ONSNC — Omniversal NovumSapiens & NeoSentiencenova Nexus for Civilization. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
